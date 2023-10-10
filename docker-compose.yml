@@ -33,13 +33,14 @@ services:
     depends_on:
       - mysql
 
-  my-python-app:
+  flight-insertion:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "27018:27018"  # Modification du port pour éviter le conflit avec MongoDB
-    container_name: my-python-app
+      - "27018:27018"
+    container_name: flight-insertion
+    command: python /app/insert_data.py
     depends_on:
       - mongodb
 
@@ -48,7 +49,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "27019:27018"  # Modification du port pour éviter le conflit avec my-python-app
+      - "27019:27018"
     container_name: delay-insertion
     command: python /app/insert_delay_data.py
     depends_on:
@@ -59,7 +60,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3308:3306"  # Modification du port pour éviter le conflit avec MySQL
+      - "3308:3306"
     container_name: airlines-insertion
     command: python /app/insert_airlines_data.py
     depends_on:
@@ -70,7 +71,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3309:3306"  # Modification du port pour éviter le conflit avec MySQL
+      - "3309:3306"
     container_name: airports-insertion
     command: python /app/insert_airports_data.py
     depends_on:

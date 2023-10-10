@@ -19,7 +19,6 @@ if response.status_code == 200:
 
         # Vérifier si la collection existe
         if collection_name in db.list_collection_names():
-            # Supprimer la collection existante
             db[collection_name].drop()
             print(f"La collection '{collection_name}' existante a été supprimée")
 
