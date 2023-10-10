@@ -15,7 +15,6 @@ db = client["dst_airliness"]
 collection = db["flight_collection"]
 collection_flight_delay = db["flight_delay"]
 
-# Remplacez les informations de connexion par les vôtres
 db_user = 'root'
 db_password = 'root'
 db_host = 'mysql'
@@ -65,7 +64,6 @@ def show_flight_map():
 
 @app.route('/analyse')
 def analyse():
-    # Votre code d'analyse ici
     # Remplacer le nombre d'échantillons par le nombre souhaité
     df_flight_sample = df_flight.sample(n=1000)
     df_airports_sample = df_airports.sample(n=1000)
