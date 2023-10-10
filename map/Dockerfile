@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Installez les dépendances de l'application
-RUN pip install -r requirements.txt  # Assurez-vous que vous avez un fichier requirements.txt contenant les dépendances de votre application Flask
+RUN pip install -r requirements.txt
 
 # Commande pour exécuter l'application Flask au démarrage du conteneur
-CMD ["python", "app.py"]  # Assurez-vous que le fichier dapplication est nommé app.py
+CMD ["python", "app.py"]
